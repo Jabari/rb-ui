@@ -1,6 +1,3 @@
-(function() {
-
-})
 var container = document.querySelector('.container');
 var grid = new Muuri(container, {
 
@@ -33,7 +30,7 @@ var grid = new Muuri(container, {
     alignBottom: false,
     rounding: false
   },
-  layoutOnResize: 200,
+  layoutOnResize: 100,
   layoutOnInit: true,
   layoutDuration: 300,
   layoutEasing: 'ease',
@@ -72,3 +69,10 @@ var grid = new Muuri(container, {
   itemReleasingClass: 'muuri-item-releasing'
 
 });
+
+window.onload = function() {
+	var cards = document.querySelectorAll('.card');
+	for (var i = 0; i < cards.length; i++) {
+		cards[i].setAttribute('aria-label', cards[i].childNodes[1].innerText);
+	}
+};

@@ -1,0 +1,33 @@
+#modal {
+	height: $large-font * 10;
+  width: 50%;
+  margin: auto;
+  padding: 2rem 3rem;
+  position: fixed;
+  top: 100px;
+  left: 25%;
+  z-index: 10000000;
+  background: white;
+  border-radius: $small-font / 2;
+  box-shadow: 0 2px 4px #999;
+  .close-modal {
+		border: 2px solid #e7e7e7;
+  	position: absolute;
+    left: 50%;
+    font-size: $small-font;
+    padding: .5rem 2rem;
+    transform: translateX(-50%);
+    bottom: 2rem;
+  	width: 100px;
+  }
+}
+#modal-backdrop {
+	background: #555;
+	opacity: .25;
+	height: 100vh;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 1000;
+}

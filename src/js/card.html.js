@@ -64,4 +64,4 @@ class Card extends HTMLElement {
 
 }
 
-window.customElements.define('progress-bar', ProgressBar);
+window.customElements.define('card', Card);

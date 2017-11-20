@@ -23,11 +23,15 @@
     "postcss-css-variables": "^0.6.0",
     "postcss-custom-media": "^5.0.1",
     "postcss-import": "^8.1.2",
+    "postcss-scss": "^1.0.2",
     "watch": "^1.0.1"
   },
   "scripts": {
+    "build-task:scss-compile": "node-sass-chokidar --source-map true src/scss -o css",
+    "sass:watch": "chokidar 'src/scss/*.scss' -c 'npm run sass:build'",
     "start": "parallelshell 'npm run build:css' 'npm run server'",
     "build:css": "watch 'node index.js' src/",
-    "server": "browser-sync start --server --files 'css/*.css, *.html'"
-  }
+    "server": "browser-sync start --server --files 'css/*.css, *.html, src/*.css src/js/*.js'"
+  },
+  "main": "index.js"
 }

@@ -31,16 +31,3 @@ Your task is to build the layout shown in the mockup using HTML/CSS.
 * The images are located in `images/`
 
 Good luck!
-
-
-## Notes
-√ Animated Hover Effects of icons
-* Center cards in container
-* Tooltips - telling users to click on icon to reorder cards
-* Clicking on icons or bottom part of cards reorders cards based on that metric, e.g, clicking on applicants reorders cards from most applicants to least
-√ Cards are draggable, i.e., users can drag cards to reorder them
-* modals telling user cards are draggable and other noteworthy tips 
-* Load app with basic template skeleton so user see image before all content is fully loaded
-* accessible. tabbable content and screenreader accessible
-* test in mobile!
-* Why did you choose flexbox over grid - browser support, right?

@@ -12,7 +12,7 @@ $small-font: 1rem;
   background-repeat: no-repeat;
   text-align: center;
   margin: auto;
-  width: 35px;
+  width: 2.5rem;
 }
 
 @mixin icon-hover-transition {
@@ -28,22 +28,28 @@ $small-font: 1rem;
 html {
 	font-size: calc( 7rem / 8 );
 }
+body {
+	background: $background-color;
+	margin: 0;
+	padding: 1%;
+}
 .container {
-  background: $background-color;
-  background: linear-gradient(to right, #ece9e6, $background-color);
   display: flex;
   flex-wrap: wrap;
   font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  height: 100%;
   justify-content: space-evenly;
   position: relative;
   width: 100%;
+  margin: auto;
 
 	.item {
 	  position: absolute;
 	  cursor: pointer;
-	  width: 47%;
-	  height: 250px;
-	  margin: 5px;
+	  min-width: 30rem;
+	  width: 48%;
+	  height: $large-font * 12;
+	  margin: 1%;
 	  z-index: 1;
 	  background: transparent;
 	  color: #fff;
@@ -56,27 +62,35 @@ html {
 		  .card {
 			  display: flex;
 			  background: #fff;
-			  border-radius: 3px;
+			  border-radius: $small-font / 2;
+			  box-shadow: 0 2px 1px #e7e7e7;
 			  color: #555;
 			  flex-direction: row;
 			  flex-wrap: wrap;
 			  height: 100%;
 			  line-height: 2rem;
+			  overflow: hidden;
 			  text-overflow: ellipsis;
+			  white-space: nowrap;
 
 			  &__header {
 			  	border-bottom: 2px solid $background-color;
 			  	height: 50%;
 			  	padding: $card-padding;
+			  	text-overflow: ellipsis;
 				  width: 100%;
 
 				  h2 {
+				  	cursor: text;
 				  	margin: .5rem 0;
 						font-size: 1.5rem;
 						font-weight: 500;
+						overflow: hidden;
+						text-overflow: inherit;
 				  }
 
 				  p {
+				  	cursor: text;
 				  	float: left;
 				  	margin: 0 1.5rem 0 0;
 				  }
@@ -84,7 +98,6 @@ html {
 
 				&__stats {
 					display: flex;
-					flex: initial;
 					flex-direction: column;					
 					height: 50%;
 			  	padding: $card-padding;
@@ -100,12 +113,15 @@ html {
 					&.medals {
 						flex-direction: row;
 						font-size: $small-font;
+						width: auto;
 					}
 					&.outreach {
 
 						&.in-progress:after {
-							background-image: url('../images/Status-Icon-InProgress.svg');
-							content: '';
+							@include icon-background('../images/Status-Icon-InProgress.svg');							
+							height: $large-font;
+    					margin-top: -2.75rem;
+    					margin-left: 6rem;
 						}
 					}
 					&.applicants {
@@ -154,9 +170,23 @@ html {
 	}
 } 
 ::selection {
-	background: inherit;
-	color: inherit;
+	background: initial;
+	color: initial;
 }
-::webkit-scrollbar {
 
+@media screen and (min-width: 32em) and (max-width: 60em) {
+	.container {
+		margin-left: 1%;
+		.item {
+		  position: absolute;
+		  cursor: pointer;
+		  min-width: 30rem;
+		  width: 96%;
+		  height: 250px;
+		  margin: 1%;
+		  z-index: 1;
+		  background: transparent;
+		  color: #fff;
+		}
+	}
 }

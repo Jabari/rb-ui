@@ -8,6 +8,14 @@ var cssvariables = require('postcss-css-variables')
 var compressor = require('node-minify')
 var conditionals = require('postcss-conditionals')
 var customMedia = require("postcss-custom-media")
+var syntax = require('postcss-scss')
+//cssnano
+//postcss-font-magician
+// postcss-strip-inline-comments
+
+// if (process.BROWSER_BUILD) {
+//   var Muuri = require("muuri")
+// }
 
 // css to be processed
 var css = fs.readFileSync("src/mnml.css", "utf8")
@@ -19,7 +27,8 @@ output = postcss()
   .use(conditionals())
   .use(customMedia())
   .use(autoprefixer())
-  .process(css, {
+//  .process(css, {
+  .process({
     from: "./src/mnml.css",
     to: "./css/mnml.css"
   }).then(function(output) {
@@ -28,8 +37,9 @@ output = postcss()
 
 
 // Using Clean-css for CSS
-new compressor.minify({
-    type: 'clean-css',
-    fileIn: './css/mnml.css',
-    fileOut: './css/mnml.min.css'
-});
+var compressor = require("node-minify");
+// compressor.minify({
+//     compressor: 'clean-css',
+//     fileIn: './css/mnml.css',
+//     fileOut: './css/mnml.min.css'
+// });
